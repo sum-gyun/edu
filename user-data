@@ -1,0 +1,10 @@
+#!/bin/sh
+yum -y install httpd php
+chkconfig httpd on
+systemctl start httpd
+cd /var/www/html
+wget dbxh6vyykosu3.cloudfront.net/web-php-v1.tar.gz
+tar xvfz web-php-v1.tar.gz
+yum -y update
+amazon-linux-extras install -y epel
+yum –y install stress
