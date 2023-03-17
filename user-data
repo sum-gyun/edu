@@ -1,3 +1,5 @@
+# OLD USER DATA
+
 #!/bin/sh
 yum -y install httpd php
 chkconfig httpd on
@@ -8,3 +10,22 @@ tar xvfz web-php-v1.tar.gz
 yum -y update
 amazon-linux-extras install -y epel
 yum –y install stress
+
+# NEW USER DATA 20230317
+
+#!/bin/sh
+yum -y install httpd php php-mysql
+chkconfig httpd on
+systemctl start httpd
+cd /var/www/html
+wget dbxh6vyykosu3.cloudfront.net/web-php-v1.tar.gz
+tar xvfz web-php-v1.tar.gz
+yum -y update
+amazon-linux-extras install -y epel
+yum –y install stress
+
+#mysql 테스트
+mysql -u [id] -P 3306 -h [endpoint] -p [dbname]
+
+#스트레스 테스트
+stress --cpu 1 --timeout 300s
